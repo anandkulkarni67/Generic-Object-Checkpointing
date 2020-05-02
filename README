@@ -1,0 +1,139 @@
+Spring 2016
+PROJECT <5> README FILE
+
+Author(s): 	<Anand Kulkarni>
+
+PURPOSE:
+
+[
+  This project intends to use dynamic proxy, reflection and strategy pattern and serialize and deSerialize objects.
+]
+
+PERCENT COMPLETE:
+
+[
+  I believe, I have completed 100% of this project.
+]
+
+PARTS THAT ARE NOT COMPLETE:
+
+[
+  None.
+]
+
+BUGS:
+
+[
+  None.
+]
+
+FILES:
+
+[
+  Driver.java: This class contains the main method.
+  FileProcessorI.java: This interface declares all methods which needs to be implemented by every contrete file processor implementation.
+  OutputWriterI.java.java: This interface declares all methods which needs to be implemented by every contrete output writer implementation.
+  FileProcessor.java: This class provides implementation of file read and write operations.
+  XMLDeSerializer.java: This class contains the logic to deSerialize the XML file into java objects of type SerializableObject.
+  XMLSerializer.java: This class contains the logic to serialize the object of type SerializableObject.
+  RestoreI.java: This interface defines all methods used to read objects from a file.
+  StoreI.java: This interface defines methods for each object to be written to the file.
+  StoreRestoreI: This interface acts as a tagging interface for methods which are to be intercepted using a dynamic proxy design pattern.
+  MyAllTypesFirst: This class defines an object that will be stored and read from the file.
+  MyAllTypesSecond: This class defines an object that will be stored and read from the file.
+  ProxyCreator: This class contains the logic to create an instance of proxy.
+  RandomValueGenerator: This class contains the logic to generate random numbers of different types.
+  SerializableObject: This class is used as tagging class to define serializable objects.
+  Mode: This class is used define different modes that the application can handle.
+  XMLDeSerializationConstants: This class defines patterns which are used while DeSerialization.
+  XMLSerializationConstants: This class defines patterns which are used while Serialization.
+  DeSerializationStrategyI: This interface defines methods required to DeSerialize an object.
+  SerializationStrategyI: This interface defines methods required to Serialize an object.
+  proxyHandler: This class acts as a proxy handler and intercepts calls to methods from StoreRestoreI interface and provides the implementation for these methods.
+  README.txt: the text file you are presently reading.
+]
+
+SAMPLE OUTPUT:
+
+[
+  remote01:~/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5> ant -buildfile Generic_Checkpointing/build.xml clean
+  Buildfile: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/build.xml
+
+  clean:
+     [delete] Deleting directory /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD
+
+  BUILD SUCCESSFUL
+  Total time: 0 seconds
+  remote01:~/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5> ant -buildfile
+   Generic_Checkpointing/build.xml all
+  Buildfile: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/build.xml
+
+  prepare:
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD/classes
+
+  genericCheckpointing:
+      [javac] /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/build.xml:48: warning: 'includeantruntime' was not set, 
+              defaulting to build.sysclasspath=last; set to false for repeatable builds
+      [javac] Compiling 19 source files to /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD/classes
+
+  compile_all:
+
+  all:
+
+  BUILD SUCCESSFUL
+  Total time: 4 seconds
+  remote01:~/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5> ant -buildfile Generic_Checkpointing/build.xml run -Darg0=serdeser -Darg1=5 -Darg2=checkpointingfile.txt
+  Buildfile: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/build.xml
+
+  jar:
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD/jar
+      [jar] Building jar: /import/linux/home/akulka15/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5/Generic_Checkpointing/BUILD/jar/genericCheckpointing.jar
+
+  run:
+      [java] 0 mismatched objects found.
+
+  BUILD SUCCESSFUL
+  Total time: 1 second
+  remote01:~/design patterns/asg5/anand_kulkarni_assign5/anand_kulkarni_assign5>
+]
+
+TO COMPILE:
+
+[
+  Steps for program compilation :	
+  1. Compile all java classes by using following command :	
+	 ant -buildfile Generic_Checkpointing/build.xml all
+]
+
+TO RUN:
+
+[
+  Steps for program execution :
+  1. Execute following command to run the program :
+	ant -buildfile Generic_Checkpointing/build.xml run -Darg0=<MODE> -Darg1=<NUM_OF_OBJECTS> -Darg2=<FILENAME>
+	For example : ant -buildfile Generic_Checkpointing/build.xml run -Darg0=serdeser -Darg1=5 -Darg2=checkpointingfile.txt
+	Note :- In 'deser' mode NUM_OF_OBJECTS is TOTAL number of objects to read and NOT the number of objects of one kind.
+		In 'serdeser' mode NUM_OF_OBJECTS is number of objects OF A KIND to read and NOT the total number of objects.
+]
+
+EXTRA CREDIT:
+
+[
+  None.
+]
+
+BIBLIOGRAPHY:
+
+This serves as evidence that we are in no way intending Academic Dishonesty.
+<Anand Kulkarni>
+
+[
+  None.
+]
+
+ACKNOWLEDGEMENT:
+
+[
+  None.
+]
